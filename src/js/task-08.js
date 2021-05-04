@@ -8,16 +8,19 @@ const refs = {
 
 const gallTmp = [];
 
+const colorRandomizer = function () {
+    const randomColor = [];
+    for (let j = 0; j < 4; j++) {
+        randomColor.push(Math.floor(Math.random() * (256 - 0) + 0));
+    };
+    return randomColor;
+};
+
 const createBoxes = function (amount) {
     for (let i = +amount; i > 0; i--) {
         const objTmp = document.createElement("div");
-        const randomColor = [];
-        for (let j = 0; j < 4; j++) {
-            randomColor.push(Math.floor(Math.random() * (256 - 0) + 0));
-        };
-        let width = 30 + ((+amount - i) * 10);
-        let height = 30 + ((+amount - i) * 10);
-        objTmp.setAttribute("style", `background-color: rgb(${randomColor}); width: ${width}px; height: ${height}px`);
+        let size = 30 + ((+amount - i) * 10);
+        objTmp.setAttribute("style", `background-color: rgb(${colorRandomizer()}); width: ${size}px; height: ${size}px`);
         gallTmp.push(objTmp);
     };
 };

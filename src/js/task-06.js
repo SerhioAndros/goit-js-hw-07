@@ -1,12 +1,13 @@
 const inputRef = document.querySelector("#validation-input");
 
+const classCheck = function (addClass, removeClass) {
+    inputRef.classList.add(addClass);
+    inputRef.classList.remove(removeClass);
+};
+
 inputRef.addEventListener("blur", (e) => {
     if (inputRef.value.length !== 6) {
-        inputRef.classList.add("invalid");
-        inputRef.classList.remove("valid");
-    };
-    if (inputRef.value.length === 6) {
-        inputRef.classList.add("valid");
-        inputRef.classList.remove("invalid")
-    };
+        classCheck("invalid", "valid");
+    }
+    else classCheck("valid", "invalid");
 });
